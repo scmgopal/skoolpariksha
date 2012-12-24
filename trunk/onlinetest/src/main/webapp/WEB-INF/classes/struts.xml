@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="prabhat" namespace="/prabhat" extends="struts-default">
+		<!-- Login Form Configuration -->
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+        <action name="showLogin">
+			<result type="tiles">login</result>
+        </action>
+        
+        <action name="doLogout" class="com.prabhat.view.login.action.Logout">
+			<result type="tiles">login</result>
+        </action>
+
+        <action name="doLogin" class="com.prabhat.view.login.action.Login">
+            <result  name="input" type="tiles">login</result>
+			<result  name="error" type="tiles">login</result>
+        </action>
+        
+		<action name="doUserTest" class="com.prabhat.view.test.action.UserTest">
+            <result  name="userTestPage" type="tiles">usertest</result>
+            <result  name="addtestpage" type="tiles">addtestpage</result>
+            <result name="input" type="tiles">addtestpage</result>
+        </action>
+        
+        <action name="doUserQuestion" class="com.prabhat.view.question.action.UserQuestion">
+            <result  name="userquestion" type="tiles">userquestion</result>
+            <result  name="addquestion" type="tiles">addquestion</result>
+             <result name="input" type="tiles">addquestion</result>
+        </action>
+        
+        <action name="doUserAction" class="com.prabhat.view.user.action.UserAction">
+            <result name="userpage" type="tiles">userpage</result>
+            <result name="adduserpage" type="tiles">adduserpage</result>
+            <result name="input" type="tiles">adduserpage</result>
+        </action>
+		
+		 <action name="doSudentAction" class="com.prabhat.view.user.action.StudentAction">
+            <result  name="studentpage" type="tiles">studentpage</result>
+            <result  name="studentpaper" type="tiles">studentpaper</result>
+        </action>
+         <!-- Add actions here -->
+    </package>
+
+
+    <!-- Add packages here -->
+
+</struts>

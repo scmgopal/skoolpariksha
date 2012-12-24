@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/pages/jsp/layouts/baseLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="style-sheet" value="/pages/jsp/templates/common-style.jsp" />
+		<put-attribute name="header" value="/pages/jsp/templates/header.jsp" />
+		<put-attribute name="menu-bar" value="/pages/jsp/templates/menubar.jsp" />
+		<put-attribute name="body" value="/pages/jsp/templates/body.jsp" />
+	</definition>
+	
+	<definition name="studentLayout" extends="baseLayout">
+		<put-attribute name="menu-bar" value="/pages/jsp/templates/studentmenubar.jsp" />
+	</definition>
+
+	<definition name="usertest" extends="baseLayout">
+		<put-attribute name="title" value="User Test Page" />
+		<put-attribute name="body" value="/pages/jsp/test/usertest.jsp" />
+	</definition>
+	<definition name="addtestpage" extends="baseLayout">
+		<put-attribute name="title" value="Add Test" />
+		<put-attribute name="body" value="/pages/jsp/test/addtestpage.jsp" />
+	</definition>
+
+	<definition name="userpage" extends="baseLayout">
+		<put-attribute name="title" value="User page" />
+		<put-attribute name="body" value="/pages/jsp/user/userpage.jsp" />
+	</definition>
+
+	<definition name="adduserpage" extends="baseLayout">
+		<put-attribute name="title" value="Add User" />
+		<put-attribute name="body" value="/pages/jsp/user/adduserpage.jsp" />
+	</definition>
+	
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="style-sheet" value="/pages/jsp/templates/login-style.jsp" />
+		<put-attribute name="body" value="/pages/jsp/login/login.jsp" />
+	</definition>
+	
+	
+	<definition name="userquestion" extends="baseLayout">
+		<put-attribute name="title" value="Question" />
+		<put-attribute name="body" value="/pages/jsp/question/userquestion.jsp" />
+	</definition>
+	
+	<definition name="addquestion" extends="baseLayout">
+		<put-attribute name="title" value="Add Question" />
+		<put-attribute name="body" value="/pages/jsp/question/addquestion.jsp" />
+	</definition>
+	
+	<definition name="studentpage" extends="studentLayout">
+		<put-attribute name="title" value="Student Test" />
+		<put-attribute name="body" value="/pages/jsp/student/studentpage.jsp" />
+	</definition>
+	
+	<definition name="studentpaper" extends="studentLayout">
+		<put-attribute name="title" value="Student Test" />
+		<put-attribute name="body" value="/pages/jsp/student/studentpaper.jsp" />
+	</definition>
+	
+</tiles-definitions>

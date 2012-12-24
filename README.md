@@ -1,4 +1,0 @@
-skoolpariksha
-=============
-
-skoolpariksha

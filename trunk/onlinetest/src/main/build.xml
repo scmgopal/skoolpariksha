@@ -1,0 +1,96 @@
+<project name="onlinetest" basedir="" default="war">
+
+	<!-- Project settings -->
+	<property name="project.title" value="Onlinetest"/>
+	<property name="project.jar.file" value="onlinetest.jar"/>
+
+	<path id="class.path">
+		<fileset dir="web/WEB-INF/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="web/WEB-INF/libext">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="dist" />
+	</target>
+
+	<!-- Classpath for Project -->
+	<path id="compile.classpath">
+		<pathelement path ="web/WEB-INF/lib/*.jar"/>
+	</path>
+
+	<!-- Check timestamp on files -->
+	<target name="prepare">
+		<tstamp/>
+		<copy
+				file="src/java/struts.xml"
+				todir="classes"/>
+	</target>
+
+	<!-- Copy any resource or configuration files -->
+	<target name="resources">
+		<copy todir="classes" includeEmptyDirs="no">
+			<fileset dir="src/java">
+				<patternset>
+					<include name="**/*.conf"/>
+					<include name="**/*.properties"/>
+					<include name="**/*.xml"/>
+				</patternset>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Normal build of application -->
+	<target name="compile" depends="prepare,resources">
+		<javac srcdir="src" destdir="classes" debug="true" debuglevel="lines,vars,source">
+			<classpath refid="class.path"/>
+		</javac>
+		<!-- <jar
+			jarfile="web/WEB-INF/lib/${project.jar.file}"
+			basedir="classes"/>-->
+	</target>
+
+	<!-- Remove classes directory for clean build -->
+	<target name="clean"
+		  description="Prepare for clean build">
+		<delete dir="classes"/>
+		<delete dir="dist" />
+		<mkdir  dir="classes"/>
+	</target>
+
+	<!-- Build Javadoc documentation -->
+	<target name="javadoc"
+		 description="Generate JavaDoc API docs">
+		<delete dir="./doc/api"/>
+		<mkdir dir="./doc/api"/>
+		<javadoc sourcepath="./src/java"
+				destdir="./doc/api"
+				classpath="${servlet.jar}:${jdbc20ext.jar}"
+				packagenames="*"
+				author="true"
+				private="true"
+				version="true"
+				windowtitle="${project.title} API Documentation"
+				doctitle="&lt;h1&gt;${project.title} Documentation (Version ${project.version})&lt;/h1&gt;"
+				bottom="Copyright &#169; 2002">
+			<classpath refid="compile.classpath"/>
+		</javadoc>
+	</target>
+
+	<!-- Build entire project -->
+	<target name="project" depends="clean,init,prepare,compile"/>
+
+	<!-- Build War File -->
+	<target name="war" depends="project">
+		<war destfile="dist/onlinetest.war" webxml="web/WEB-INF/web.xml">
+			<fileset dir="web"/>
+			<lib dir="web/WEB-INF/lib"/>
+			<classes dir="classes"/>
+		</war>
+		<delete dir="classes"/>
+	</target>
+
+</project>

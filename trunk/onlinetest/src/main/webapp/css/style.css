@@ -1,0 +1,81 @@
+/* ***************************************************************************
+General Information
+
+Filename: 				style.css
+Desciption				Stylesheet for onlinetest
+Version:				0.2
+Website:				http://onlinetest.com
+Author:					Amit
+
+Page width: 			960px Fixed
+Minimum Resolution: 	1024 x 768
+
+*************************************************************************** */
+
+
+
+/*
+***************************************************************************
+* reset
+***************************************************************************
+*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0 }
+table { border-collapse:collapse; border-spacing:0 }
+fieldset,img,iframe { border:0 }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal }
+ol,ul { list-style:none }
+caption,th { text-align:left }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal }
+q:before,q:after { content:'' }
+abbr,acronym { border:0 }
+
+th,strong,b { font-weight:bold }
+em,i { font-style:italic }
+a { text-decoration:none; outline:none;}
+
+
+
+/*
+***************************************************************************
+* common
+***************************************************************************
+*/
+
+body{ background:url(../images/bg.png) repeat-x; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+#wrapper{ width:960px; margin:0 auto;}
+#header{}
+#header .logo{ height:63px; }
+#menu { height:44px;}
+#content-container{ background:#fff; padding:30px 10px 10px 10px; overflow:hidden;}
+#footer{}
+
+
+/*
+***************************************************************************
+* Content
+***************************************************************************
+*/
+
+#content-container h1{ padding-bottom:20px; font-size:14px; font-weight:bold;}
+
+.questions-no{ width:200px;float:left; background:#f9f9f9;}
+.questions-no .heading{ font-size:14px; background:#b5b5b5; color:#fff; padding:10px;}
+.questions-no ul{ margin:15px 0px;}
+.questions-no ul li{ float:left; margin:10px; }
+.questions-no ul li a{ color:#6c6c6c; padding:10px; }
+.questions-no ul li a.slected{ color:#444; background-color:#eee;padding:10px; }
+.question-details{ width:680px; float:left; padding: 0 30px;}
+.question-details h1{ font-size:14px; font-weight:bold; color:#444; border-bottom:1px solid #d3d3d3; padding: 0 0 15px 0;}
+.question-details p{ padding:10px 0;}
+.question-details ul li { padding:15px 5px; }
+.question-details ul li input[type='radio'] { margin: 0 10px; }
+
+.button-container{ padding:15px 0; text-align:right;}
+.button-container input
+#content-top-submenu 
+.button-container input[type="button"] { padding:1px 3px ; background:url(images/button_bg.png) repeat-x 0 0; color:#fff; font-family:inherit; font-size:1em; font-weight:bold; cursor:pointer;border-radius:4px; float:right; border:0px;  margin:4px 0 0 5px;}
+
+.data-grid{ width:100%;border:1px solid #d3d3d3;}
+.data-grid th{ padding:10px 5px; background-color:#B5B5B5; color:#fff; font-weight:bold; }
+.data-grid td {padding:10px 5px;border-top:1px solid #d3d3d3; }
